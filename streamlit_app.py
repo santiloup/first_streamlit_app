@@ -26,4 +26,4 @@ streamlit.text(fruityvice_response.json()) # raw json response
 
 # preetify fruityvice output & display
 fruityvice_normalized = pandas.json_normalize(fruityvice_response)
-streamlit.text(fruityvice_normalized)
+streamlit.dataframe(fruityvice_normalized)
