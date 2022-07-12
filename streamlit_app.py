@@ -50,6 +50,7 @@ def get_fruit_load_list():
     my_cur = my_cnx.cursor()
     my_cur.execute("SELECT * FROM fruit_load_list")
     my_data_rows = my_cur.fetchall()
+    my_cnx.close()
     return my_data_rows
 
 # Add an action button to load the fruit list
@@ -64,6 +65,7 @@ def add_fruit_to_list(new_fruit):
     fruit_add_query = "insert into pc_rivery_db.public.fruit_load_list values ('" + new_fruit + "')"
     streamlit.write(fruit_add_query)
     my_cur.execute(fruit_add_query)
+    my_cnx.close()
     return
 
 # Adding a new fruit from fruityvice menu into snowflake list
