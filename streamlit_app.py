@@ -38,3 +38,10 @@ my_cur.execute("SELECT * FROM fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
 streamlit.dataframe(my_data_rows)
+
+# Adding a new fruit from fruityvice menu into snowflake list
+new_fruit = streamlit.select("What fruit would you like to add to the fruit load list?", list(my_fruit_list.Fruit))
+streamlit.write('New fruit selected: ', new_fruit)
+fruit_add_query = "insert into pc_rivery_db.public.fruit_load_list values (" & new_fruit & ")"
+streamlit.write(fruit_add_query)
+#my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values (" & new_fruit & ")")
