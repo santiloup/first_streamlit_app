@@ -43,6 +43,6 @@ streamlit.dataframe(my_data_rows)
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 new_fruit = streamlit.selectbox("What fruit would you like to add to the fruit load list?", list(my_fruit_list.Fruit))
 streamlit.write('New fruit selected: ', new_fruit)
-fruit_add_query = "insert into pc_rivery_db.public.fruit_load_list values (" + new_fruit + ")"
+fruit_add_query = "insert into pc_rivery_db.public.fruit_load_list values ('" + new_fruit + "')"
 streamlit.write(fruit_add_query)
-#my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values (" & new_fruit & ")")
+my_cur.execute(fruit_add_query)
