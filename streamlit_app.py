@@ -39,7 +39,7 @@ except URLError as e:
   streamlit.error()
 
 # improving control flow, temporarily stopping here
-streamlit.stop
+streamlit.stop()
 # Adding snowflake connection, bring in fruit load list
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
