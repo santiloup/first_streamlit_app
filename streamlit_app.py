@@ -73,6 +73,7 @@ new_fruit = streamlit.selectbox("What fruit would you like to add to the fruit l
 if streamlit.button('Add this fruit: ' + new_fruit + '!'):
     streamlit.write('New fruit selected: ', new_fruit)
     add_fruit_to_list(new_fruit)
+    get_fruit_load_list
 
 # improving control flow, temporarily stopping here
 streamlit.stop()
